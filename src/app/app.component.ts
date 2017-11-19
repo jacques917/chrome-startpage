@@ -1,6 +1,6 @@
 import {Component, NgZone} from '@angular/core';
-import {BookmarkService} from "./services/bookmark.service";
 import {Bookmark} from "./model/bookmark";
+import {BookmarkService} from "./services/bookmark-service";
 
 @Component({
   selector: 'app-root',

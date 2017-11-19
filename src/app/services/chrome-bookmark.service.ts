@@ -4,21 +4,23 @@ import {Injectable} from '@angular/core';
 import BookmarkTreeNode = chrome.bookmarks.BookmarkTreeNode;
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {Bookmark} from "../model/bookmark";
+import {BookmarkService} from "./bookmark-service";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
-export class BookmarkService {
+export class ChromeBookmarkService implements BookmarkService {
 
   constructor() {
-    this.getBookmarks();
+    this.refreshBookmarks();
   }
 
   private _bookmarks = new BehaviorSubject<Bookmark[]>([]);
 
-  get bookmarks(): BehaviorSubject<Bookmark[]> {
-    return this._bookmarks;
+  get bookmarks(): Observable<Bookmark[]> {
+    return this._bookmarks.asObservable();
   }
 
-  public getBookmarks(): void {
+  public refreshBookmarks(): void {
     chrome.bookmarks.getTree((root: BookmarkTreeNode[]) => this.handleTreeRoot(root));
   }
 
