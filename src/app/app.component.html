@@ -1,3 +1,9 @@
 <div class="container">
-  <div class="card-panel">ELO</div>
+  <div class="card-panel">ELO {{bookmarksList.length}}
+    <ul class="collection">
+      <li class="collection-item"
+        *ngFor="let bookmark of bookmarksList">{{ bookmark.title }} - {{ bookmark.url}}</li>
+    </ul>
+  </div>
+
 </div>

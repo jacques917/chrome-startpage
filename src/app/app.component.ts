@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, NgZone} from '@angular/core';
+import {BookmarkService} from "./services/bookmark.service";
+import {Bookmark} from "./model/bookmark";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+
+  bookmarksList: Bookmark[] = [];
+
+  constructor(public bookmarkService: BookmarkService, private zone:NgZone) {
+    this.bookmarkService.bookmarks
+      .subscribe((result) => {
+        this.zone.run(() => this.bookmarksList = result)
+
+      });
+  }
+
 }
