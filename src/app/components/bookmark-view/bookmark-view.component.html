@@ -1,6 +1,6 @@
 <mat-list dense>
   <h2 mat-subheader>Folder name</h2>
   <mat-list-item *ngFor="let bookmark of bookmarksList">
-    {{ bookmark.title }} - {{ bookmark.url}}
+    <a [href]="bookmark.url">{{ bookmark.title }}</a>
   </mat-list-item>
 </mat-list>

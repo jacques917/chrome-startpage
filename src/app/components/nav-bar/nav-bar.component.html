@@ -3,14 +3,14 @@
   <span class="navbar-spacer"></span>
   <div>
     <mat-form-field>
-      <input matInput placeholder="Google">
+      <input #googleSearch matInput placeholder="Google" (keyup.enter)="searchGoogle(googleSearch.value)">
     </mat-form-field>
     <mat-icon>search</mat-icon>
   </div>
   <span class="navbar-spacer"></span>
   <div>
     <mat-form-field>
-      <input matInput placeholder="YouTube">
+      <input #youtubeSearch matInput placeholder="YouTube" (keyup.enter)="searchYoutube(youtubeSearch.value)">
     </mat-form-field>
     <mat-icon>movie</mat-icon>
   </div>

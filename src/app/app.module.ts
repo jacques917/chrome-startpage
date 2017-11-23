@@ -15,7 +15,9 @@ import {
 } from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { BookmarkViewComponent } from './components/bookmark-view/bookmark-view.component';
-
+import {RouterModule} from "@angular/router";
+import {ExternalRedirectService} from "./services/external-redirect.service";
+import {appRoutes} from "./router-configuration";
 
 @NgModule({
   declarations: [
@@ -32,12 +34,13 @@ import { BookmarkViewComponent } from './components/bookmark-view/bookmark-view.
     MatToolbarModule,
     MatInputModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [{
     provide: BookmarkService,
     useFactory: bookmarksFactory
-  }],
+  }, ExternalRedirectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
