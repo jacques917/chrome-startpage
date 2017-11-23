@@ -9,14 +9,6 @@ import {BookmarkService} from "./services/bookmark-service";
 })
 export class AppComponent {
 
-  bookmarksList: Bookmark[] = [];
-
-  constructor(public bookmarkService: BookmarkService, private zone:NgZone) {
-    this.bookmarkService.bookmarks
-      .subscribe((result) => {
-        this.zone.run(() => this.bookmarksList = result)
-
-      });
-  }
+  constructor() {}
 
 }

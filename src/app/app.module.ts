@@ -8,15 +8,31 @@ import {FormsModule} from "@angular/forms";
 import {BookmarkService} from "./services/bookmark-service";
 import {environment} from "../environments/environment";
 import {MockedBookmarkService} from "./services/mocked-bookmark.service";
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import {
+  MatButtonModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule,
+  MatToolbarModule
+} from "@angular/material";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { BookmarkViewComponent } from './components/bookmark-view/bookmark-view.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavBarComponent,
+    BookmarkViewComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [{
     provide: BookmarkService,
@@ -27,7 +43,6 @@ import {MockedBookmarkService} from "./services/mocked-bookmark.service";
 export class AppModule { }
 
 export function bookmarksFactory(): BookmarkService {
-  console.log(environment);
   if (environment.chromeBookmarks) {
     return new ChromeBookmarkService();
   } else {
