@@ -5,14 +5,14 @@
     <mat-form-field class="app-navbar-search-mat-form-field">
       <input #googleSearch matInput placeholder="Google" (keyup.enter)="searchGoogle(googleSearch.value)">
     </mat-form-field>
-    <mat-icon>search</mat-icon>
+    <button mat-icon-button (click)="searchGoogle(googleSearch.value)"><mat-icon>search</mat-icon></button>
   </div>
   <span class="navbar-spacer"></span>
   <div class="app-navbar-search-field-wrapper">
     <mat-form-field class="app-navbar-search-mat-form-field">
       <input #youtubeSearch matInput placeholder="YouTube" (keyup.enter)="searchYoutube(youtubeSearch.value)">
     </mat-form-field>
-    <mat-icon>movie</mat-icon>
+    <button mat-icon-button (click)="searchYoutube(youtubeSearch.value)"><mat-icon>movie</mat-icon></button>
   </div>
   <span class="navbar-spacer"></span>
   <a mat-icon-button routerLink="/settings"><mat-icon>settings</mat-icon></a>
