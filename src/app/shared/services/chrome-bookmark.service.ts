@@ -1,11 +1,11 @@
-///<reference path="../../../node_modules/@types/chrome/index.d.ts" />
+///<reference path="../../../../node_modules/@types/chrome/index.d.ts" />
 
 import {Injectable} from '@angular/core';
-import BookmarkTreeNode = chrome.bookmarks.BookmarkTreeNode;
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {Bookmark} from "../model/bookmark";
 import {BookmarkService} from "./bookmark-service";
 import {Observable} from "rxjs/Observable";
+import BookmarkTreeNode = chrome.bookmarks.BookmarkTreeNode;
 
 @Injectable()
 export class ChromeBookmarkService implements BookmarkService {
@@ -21,7 +21,7 @@ export class ChromeBookmarkService implements BookmarkService {
   }
 
   public refreshBookmarks(): void {
-    chrome.bookmarks.getTree((root: BookmarkTreeNode[]) => this.handleTreeRoot(root));
+    chrome.bookmarks.getTree((root: Bookmark[]) => this.handleTreeRoot(root));
   }
 
   private handleTreeRoot(root: BookmarkTreeNode[]): void {
@@ -30,9 +30,9 @@ export class ChromeBookmarkService implements BookmarkService {
     this._bookmarks.next(result);
   }
 
-  private handleTreeNode(node: BookmarkTreeNode, result: Bookmark[]): void {
+  private handleTreeNode(node: Bookmark, result: Bookmark[]): void {
     if (node.children) {
-      node.children.forEach((node: BookmarkTreeNode) => this.handleTreeNode(node, result));
+      node.children.forEach((node: Bookmark) => this.handleTreeNode(node, result));
     } else {
       let bookmark = new Bookmark(node.title, node.url);
       result.push(bookmark);

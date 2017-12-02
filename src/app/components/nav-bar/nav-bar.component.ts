@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ExternalRedirectService} from "../../services/external-redirect.service";
+import {ExternalRedirectService} from "../../shared/services/external-redirect.service";
 
 @Component({
   selector: 'app-nav-bar',

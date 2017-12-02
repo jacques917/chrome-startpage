@@ -1,19 +1,19 @@
 <mat-toolbar class="app-navbar">
-  <mat-icon>menu</mat-icon>
+  <a mat-icon-button routerLink="/"><mat-icon>home</mat-icon></a>
   <span class="navbar-spacer"></span>
-  <div>
-    <mat-form-field>
+  <div class="app-navbar-search-field-wrapper">
+    <mat-form-field class="app-navbar-search-mat-form-field">
       <input #googleSearch matInput placeholder="Google" (keyup.enter)="searchGoogle(googleSearch.value)">
     </mat-form-field>
     <mat-icon>search</mat-icon>
   </div>
   <span class="navbar-spacer"></span>
-  <div>
-    <mat-form-field>
+  <div class="app-navbar-search-field-wrapper">
+    <mat-form-field class="app-navbar-search-mat-form-field">
       <input #youtubeSearch matInput placeholder="YouTube" (keyup.enter)="searchYoutube(youtubeSearch.value)">
     </mat-form-field>
     <mat-icon>movie</mat-icon>
   </div>
   <span class="navbar-spacer"></span>
-  <mat-icon>settings</mat-icon>
+  <a mat-icon-button routerLink="/settings"><mat-icon>settings</mat-icon></a>
 </mat-toolbar>

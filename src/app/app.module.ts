@@ -3,27 +3,29 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import {ChromeBookmarkService} from "./services/chrome-bookmark.service";
+import {ChromeBookmarkService} from "./shared/services/chrome-bookmark.service";
 import {FormsModule} from "@angular/forms";
-import {BookmarkService} from "./services/bookmark-service";
+import {BookmarkService} from "./shared/services/bookmark-service";
 import {environment} from "../environments/environment";
-import {MockedBookmarkService} from "./services/mocked-bookmark.service";
+import {MockedBookmarkService} from "./shared/services/mocked-bookmark.service";
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import {
   MatButtonModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule,
   MatToolbarModule
 } from "@angular/material";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { BookmarkViewComponent } from './components/bookmark-view/bookmark-view.component';
+import { BookmarkViewComponent } from './bookmarks/components/bookmark-view/bookmark-view.component';
 import {RouterModule} from "@angular/router";
-import {ExternalRedirectService} from "./services/external-redirect.service";
+import {ExternalRedirectService} from "./shared/services/external-redirect.service";
 import {appRoutes} from "./router-configuration";
+import {SharedModule} from "./shared/shared.module";
+import {SettingsModule} from "./settings/settings.module";
+import {BookmarksModule} from "./bookmarks/bookmarks.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent,
-    BookmarkViewComponent
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,9 @@ import {appRoutes} from "./router-configuration";
     MatInputModule,
     MatIconModule,
     MatListModule,
+    SharedModule,
+    SettingsModule,
+    BookmarksModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [{
