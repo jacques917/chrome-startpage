@@ -1,0 +1,11 @@
+.top-bookmarks-bar-item {
+  text-decoration: none;
+  color: inherit;
+  border-radius: 24px;
+  background-color: blueviolet;
+}
+
+.top-bookmarks-panel:focus {
+  outline: none;
+  border: 0;
+}

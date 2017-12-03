@@ -1,0 +1,10 @@
+<mat-chip-list class="top-bookmarks-panel" [disabled]="true" [selectable]="false">
+  <mat-chip disabled="true" [removable]="false" [selectable]="false" *ngFor="let bookmark of bookmarks">
+    <a [href]="bookmark.url" style="text-decoration: none; color: inherit">
+    <span style="display: flex; justify-content: baseline; flex-direction: row; flex-grow: 0">
+      <mat-icon>help</mat-icon>
+      <span style="line-height: 24px; padding-left: 4px">{{bookmark.title | slice:0:20}}</span>
+    </span>
+    </a>
+  </mat-chip>
+</mat-chip-list>
